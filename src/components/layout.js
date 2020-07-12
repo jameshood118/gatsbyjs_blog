@@ -1,8 +1,6 @@
 import React from "react"
-import { css } from "@emotion/core"
 import { useStaticQuery, Link, graphql } from "gatsby"
 
-import { rhythm } from "../utils/typography"
 export default function Layout({ children }) {
   const data = useStaticQuery(
     graphql`
@@ -16,34 +14,37 @@ export default function Layout({ children }) {
     `
   )
   return (
-    <div
-      css={css`
-        margin: 0 auto;
-        max-width: 700px;
-        padding: ${rhythm(2)};
-        padding-top: ${rhythm(1.5)};
-      `}
-    >
-      <Link to={`/`}>
-        <h3
-          css={css`
-            margin-bottom: ${rhythm(2)};
-            display: inline-block;
-            font-style: normal;
-          `}
-        >
+    <div className="container is-fluid">
+<nav className="navbar" role="navigation" aria-label="main navigation">
+  <div className="navbar-brand">
+    <Link to={`/`} className="navbar-iteem">
           {data.site.siteMetadata.title}
-        </h3>
       </Link>
-      <Link
+
+    <span role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </span>
+  </div>
+
+  <div className="navbar-menu">
+    <div className="navbar-start">
+      <Link className="navbar-item"
         to={`/about/`}
-        css={css`
-          float: right;
-        `}
       >
         About
       </Link>
-      {children}
+
     </div>
+
+    <div className="navbar-end">
+    </div>
+  </div>
+</nav>
+    <main>
+    {children}
+    </main>
+  </div>
   )
 }

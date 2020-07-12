@@ -3,16 +3,13 @@ import { css } from "@emotion/core"
 import { Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
-
+import "./mystyles.scss"
 export default function Home({ data }) {
   return (
     <Layout>
+      <main>
       <div>
-        <h1
-          css={css`
-            display: inline-block;
-            border-bottom: 1px solid;
-          `}
+        <h1 className="title is-4"
         >
           Amazing Pandas Eating Things
         </h1>
@@ -45,6 +42,7 @@ export default function Home({ data }) {
           </div>
         ))}
       </div>
+      </main>
     </Layout>
   )
 }
