@@ -5,21 +5,33 @@ import Layout from "../components/layout"
 export default function About({ data }) {
   return (
     <Layout>
-      <h1>About {data.site.siteMetadata.title}</h1>
-      <p>
-        We're the only site running on your computer dedicated to showing the
-        best photos and videos of pandas eating lots of food.
-      </p>
+      <h1>About Some Star Peopley Peeps</h1>
+      <div className="columns is-multiline">
+      {data.swapi.allPeople.edges.map(({ node }) => (
+                  <div key={node.id} className="column is-4">
+                  <div className="card">
+                  <div className="card-content">
+      {node.name}
+                </div>
+                </div>
+                </div>
+        ))}
+      </div>
     </Layout>
   )
 }
 
 export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        title
+    swapi {
+    allPeople(first: 10) {
+      edges {
+        node {
+          id
+          name
+        }
       }
     }
+  }
   }
 `
