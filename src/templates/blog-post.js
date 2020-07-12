@@ -9,16 +9,16 @@ export default function BlogPost({ data }) {
       <div className="columns">
         <div class="column is-12">
           <div className="card">
-          <header class="card-header">
-            <h1 class="card-header-title">
-              {post.frontmatter.title}
-            </h1>
-          </header>
+            <header class="card-header">
+              <h1 class="card-header-title">
+                {post.frontmatter.title}
+              </h1>
+            </header>
             <div className="card-content">
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
             </div>
           </div>
-      
+
         </div>
       </div>
     </Layout>
