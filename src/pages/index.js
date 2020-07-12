@@ -7,7 +7,6 @@ import "./mystyles.scss"
 export default function Home({ data }) {
   return (
     <Layout>
-      <main>
       <div>
         <h1 className="title is-4"
         >
@@ -15,7 +14,10 @@ export default function Home({ data }) {
         </h1>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
+          <div className="columns is-multiline">
+          <div key={node.id} className="column is-12">
+            <div className="card">
+            <div className="card-content">
             <Link
               to={node.fields.slug}
               css={css`
@@ -40,9 +42,11 @@ export default function Home({ data }) {
               <p>{node.excerpt}</p>
             </Link>
           </div>
+          </div>
+          </div>
+        </div>
         ))}
       </div>
-      </main>
     </Layout>
   )
 }
