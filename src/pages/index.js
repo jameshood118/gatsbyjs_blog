@@ -13,8 +13,8 @@ export default function Home({ data }) {
           Amazing Pandas Eating Things
         </h1>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+        <div className="columns is-multiline">
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div className="columns is-multiline">
           <div key={node.id} className="column is-12">
             <div className="card">
             <div className="card-content">
@@ -44,8 +44,8 @@ export default function Home({ data }) {
           </div>
           </div>
           </div>
-        </div>
         ))}
+        </div>
       </div>
     </Layout>
   )
